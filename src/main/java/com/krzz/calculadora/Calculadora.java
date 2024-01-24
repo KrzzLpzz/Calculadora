@@ -9,8 +9,8 @@ package com.krzz.calculadora;
  * @author crisa
  */
 public class Calculadora {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
+    float result, sqrt, log, Ln, op, elevado, elevado2, pi, save, num;
+    int typeOp; // 1: suma, 2: resta, 3: multiplicacion, 4: division
+    
+    
 }

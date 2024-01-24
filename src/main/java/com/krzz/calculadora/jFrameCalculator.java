@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.krzz.calculadora;
 
 import com.formdev.flatlaf.*;
@@ -11,9 +7,9 @@ import java.awt.EventQueue;
 import javax.swing.UIManager;
 
 /**
- *
- * @author crisa
+ * @author Krzz.
  */
+
 public class jFrameCalculator extends javax.swing.JFrame {
 
     /**
@@ -21,6 +17,7 @@ public class jFrameCalculator extends javax.swing.JFrame {
      */
     public jFrameCalculator() {
         initComponents();
+        this.setLocationRelativeTo(null); // Centra la ventana en la pantalla.
     }
 
     /**
