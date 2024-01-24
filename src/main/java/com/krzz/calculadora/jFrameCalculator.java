@@ -12,6 +12,9 @@ import javax.swing.UIManager;
 
 public class jFrameCalculator extends javax.swing.JFrame {
 
+    private boolean igual, inicio = true, op1, op2;
+    private double a,b,c,memoria = 0,resultado,valor1,valor2;
+    private String cadena,funciones,tipoOperaciones;
     /**
      * Creates new form frame
      */
@@ -49,8 +52,9 @@ public class jFrameCalculator extends javax.swing.JFrame {
         jBtnEqual = new javax.swing.JButton();
         jBtnPlus = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jLabel1 = new javax.swing.JLabel();
+        ToggleTheme = new javax.swing.JToggleButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTxtPrincipal = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
         jBtnPi = new javax.swing.JButton();
         jBtnSqrt = new javax.swing.JButton();
@@ -78,101 +82,183 @@ public class jFrameCalculator extends javax.swing.JFrame {
         jBtn7.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn7.setText("7");
         jBtn7.setFocusPainted(false);
+        jBtn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn7ActionPerformed(evt);
+            }
+        });
 
         jBtn8.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn8.setText("8");
         jBtn8.setFocusPainted(false);
+        jBtn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn8ActionPerformed(evt);
+            }
+        });
 
         jBtn9.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn9.setText("9");
         jBtn9.setFocusPainted(false);
+        jBtn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn9ActionPerformed(evt);
+            }
+        });
 
         jBtnDividedBy.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
         jBtnDividedBy.setText("÷");
         jBtnDividedBy.setFocusPainted(false);
+        jBtnDividedBy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnDividedByActionPerformed(evt);
+            }
+        });
 
         jBtn4.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn4.setText("4");
         jBtn4.setFocusPainted(false);
+        jBtn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn4ActionPerformed(evt);
+            }
+        });
 
         jBtn5.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn5.setText("5");
         jBtn5.setFocusPainted(false);
+        jBtn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn5ActionPerformed(evt);
+            }
+        });
 
         jBtn6.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn6.setText("6");
         jBtn6.setFocusPainted(false);
+        jBtn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn6ActionPerformed(evt);
+            }
+        });
 
         jBtnTimes.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
         jBtnTimes.setText("×");
         jBtnTimes.setFocusPainted(false);
+        jBtnTimes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnTimesActionPerformed(evt);
+            }
+        });
 
         jBtn1.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn1.setText("1");
         jBtn1.setFocusPainted(false);
+        jBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn1ActionPerformed(evt);
+            }
+        });
 
         jBtn2.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn2.setText("2");
         jBtn2.setFocusPainted(false);
+        jBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn2ActionPerformed(evt);
+            }
+        });
 
         jBtn3.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn3.setText("3");
         jBtn3.setFocusPainted(false);
+        jBtn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn3ActionPerformed(evt);
+            }
+        });
 
         jBtnMinus.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
         jBtnMinus.setText("-");
         jBtnMinus.setFocusPainted(false);
+        jBtnMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnMinusActionPerformed(evt);
+            }
+        });
 
         jBtn0.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
         jBtn0.setText("0");
         jBtn0.setFocusPainted(false);
+        jBtn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn0ActionPerformed(evt);
+            }
+        });
 
         jBtnDot.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
         jBtnDot.setText(".");
         jBtnDot.setFocusPainted(false);
+        jBtnDot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnDotActionPerformed(evt);
+            }
+        });
 
         jBtnEqual.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
         jBtnEqual.setText("=");
         jBtnEqual.setFocusPainted(false);
+        jBtnEqual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnEqualActionPerformed(evt);
+            }
+        });
 
         jBtnPlus.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
         jBtnPlus.setText("+");
         jBtnPlus.setFocusPainted(false);
-
-        jToggleButton1.setBackground(java.awt.Color.white);
-        jToggleButton1.setForeground(java.awt.Color.white);
-        jToggleButton1.setSelected(true);
-        jToggleButton1.setFocusPainted(false);
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBtnPlus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                jBtnPlusActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("jLabel1");
+        ToggleTheme.setBackground(java.awt.Color.white);
+        ToggleTheme.setForeground(java.awt.Color.white);
+        ToggleTheme.setSelected(true);
+        ToggleTheme.setFocusPainted(false);
+        ToggleTheme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ToggleThemeActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))))
+                    .addComponent(jTextField1)
+                    .addComponent(jTxtPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(ToggleTheme, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(ToggleTheme, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxtPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton12.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
@@ -282,8 +368,8 @@ public class jFrameCalculator extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jBtnRoundBracket1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,25 +425,275 @@ public class jFrameCalculator extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void ToggleThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleThemeActionPerformed
         // Create a new event for theme switching (Dark | White)
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                if (jToggleButton1.isSelected()) {
+                if (ToggleTheme.isSelected()) {
                     // If the ToggleButton is selected we put the Dark Theme
                     FlatMacDarkLaf.setup();
                     FlatLaf.updateUI();
-                    jToggleButton1.setBackground(Color.white);
+                    ToggleTheme.setBackground(Color.white);
                 } else {
                     // If the ToggleButton isn't selected we put the White Theme
                     FlatMacLightLaf.setup();
                     FlatLaf.updateUI();
-                    jToggleButton1.setBackground(Color.black);
+                    ToggleTheme.setBackground(Color.black);
                 }
             }
         });
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_ToggleThemeActionPerformed
+
+    private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("1");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "1");
+        }
+    }//GEN-LAST:event_jBtn1ActionPerformed
+
+    private void jBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn2ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("2");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "2");
+        }
+    }//GEN-LAST:event_jBtn2ActionPerformed
+
+    private void jBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn3ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("3");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "3");
+        }
+    }//GEN-LAST:event_jBtn3ActionPerformed
+
+    private void jBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn4ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("4");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "4");
+        }
+    }//GEN-LAST:event_jBtn4ActionPerformed
+
+    private void jBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn5ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("5");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "5");
+        }
+    }//GEN-LAST:event_jBtn5ActionPerformed
+
+    private void jBtn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn6ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("6");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "6");
+        }
+    }//GEN-LAST:event_jBtn6ActionPerformed
+
+    private void jBtn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn7ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("7");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "7");
+        }
+    }//GEN-LAST:event_jBtn7ActionPerformed
+
+    private void jBtn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn8ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("8");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "8");
+        }
+    }//GEN-LAST:event_jBtn8ActionPerformed
+
+    private void jBtn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn9ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("9");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "9");
+        }
+    }//GEN-LAST:event_jBtn9ActionPerformed
+
+    private void jBtn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn0ActionPerformed
+        if (inicio == true) {
+            jTxtPrincipal.setText("");
+            jTxtPrincipal.setText("0");
+            inicio = false;
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + "0");
+        }
+    }//GEN-LAST:event_jBtn0ActionPerformed
+
+    private void jBtnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDotActionPerformed
+        if (jTxtPrincipal.getText().contains(".")) {
+
+        } else {
+            jTxtPrincipal.setText(jTxtPrincipal.getText() + ".");
+            inicio = false;
+        }
+    }//GEN-LAST:event_jBtnDotActionPerformed
+
+    private void jBtnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPlusActionPerformed
+        igual = true;
+        inicio = true;
+
+        if (op1 = true) {
+            valor1 = Double.parseDouble(jTxtPrincipal.getText());
+            jTextField1.setText("");
+            jTextField1.setText(jTxtPrincipal.getText() + " + ");
+            op1 = false;
+        } else {
+            if (op2 = true) {
+                valor2 = Double.parseDouble(jTxtPrincipal.getText());
+                jTextField1.setText(jTxtPrincipal.getText() + " + ");
+                op2 = false;
+            } else {
+                jTextField1.setText(jTxtPrincipal.getText() + " + ");
+                Operaciones(resultado, valor2);
+            }
+        }
+        
+        tipoOperaciones = "+";
+    }//GEN-LAST:event_jBtnPlusActionPerformed
+
+    private void jBtnMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMinusActionPerformed
+        igual = true;
+        inicio = true;
+
+        if (op1 = true) {
+            valor1 = Double.parseDouble(jTxtPrincipal.getText());
+            jTextField1.setText("");
+            jTextField1.setText(jTxtPrincipal.getText() + " - ");
+            op1 = false;
+        } else {
+            if (op2 = true) {
+                valor2 = Double.parseDouble(jTxtPrincipal.getText());
+                jTextField1.setText(jTxtPrincipal.getText() + " - ");
+                op2 = false;
+            } else {
+                jTextField1.setText(jTxtPrincipal.getText() + " - ");
+                Operaciones(resultado, valor2);
+            }
+        }
+        
+        tipoOperaciones = "-";
+    }//GEN-LAST:event_jBtnMinusActionPerformed
+
+    private void jBtnTimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnTimesActionPerformed
+        igual = true;
+        inicio = true;
+
+        if (op1 = true) {
+            valor1 = Double.parseDouble(jTxtPrincipal.getText());
+            jTextField1.setText("");
+            jTextField1.setText(jTxtPrincipal.getText() + " × ");
+            op1 = false;
+        } else {
+            if (op2 = true) {
+                valor2 = Double.parseDouble(jTxtPrincipal.getText());
+                jTextField1.setText(jTxtPrincipal.getText() + " × ");
+                op2 = false;
+            } else {
+                jTextField1.setText(jTxtPrincipal.getText() + " × ");
+                Operaciones(resultado, valor2);
+            }
+        }
+        
+        tipoOperaciones = "×";
+    }//GEN-LAST:event_jBtnTimesActionPerformed
+
+    private void jBtnDividedByActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDividedByActionPerformed
+        igual = true;
+        inicio = true;
+
+        if (op1 = true) {
+            valor1 = Double.parseDouble(jTxtPrincipal.getText());
+            jTextField1.setText("");
+            jTextField1.setText(jTxtPrincipal.getText() + " ÷ ");
+            op1 = false;
+        } else {
+            if (op2 = true) {
+                valor2 = Double.parseDouble(jTxtPrincipal.getText());
+                jTextField1.setText(jTxtPrincipal.getText() + " ÷ ");
+                op2 = false;
+            } else {
+                jTextField1.setText(jTxtPrincipal.getText() + " ÷ ");
+                Operaciones(resultado, valor2);
+            }
+        }
+        
+        tipoOperaciones = "÷";
+    }//GEN-LAST:event_jBtnDividedByActionPerformed
+
+    private void Operaciones(double valor1, double valor2) {
+        switch (tipoOperaciones) {
+            case "+":
+                resultado = valor1 + valor2;
+                jTxtPrincipal.setText(resultado + "");
+                valor1 = Double.parseDouble(jTxtPrincipal.getText());
+                break;
+            case "-":
+                resultado = valor1 - valor2;
+                jTxtPrincipal.setText(resultado + "");
+                valor1 = Double.parseDouble(jTxtPrincipal.getText());
+                break;
+            case "×":
+                resultado = valor1 * valor2;
+                jTxtPrincipal.setText(resultado + "");
+                valor1 = Double.parseDouble(jTxtPrincipal.getText());
+                break;
+            case "÷":
+                if (valor2 == 0) {
+                    jTxtPrincipal.setText("Error");
+                    break;
+                } else {
+                    resultado = valor1 / valor2;
+                    jTxtPrincipal.setText(resultado + "");
+                    valor1 = Double.parseDouble(jTxtPrincipal.getText());
+                    break;
+                }
+        }
+    }
+    
+    private void jBtnEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEqualActionPerformed
+        inicio = true;
+        op1 = true;
+        
+        if (igual == true) {
+            if (tipoOperaciones == null) {
+                
+            } else {
+                valor2 = Double.parseDouble(jTxtPrincipal.getText());
+                jTextField1.setText(jTextField1.getText() + jTxtPrincipal.getText());
+                Operaciones(valor1, valor2);
+                igual = false;
+            }
+        } else {
+            jTextField1.setText("");
+            Operaciones(valor1, valor2);
+        }
+    }//GEN-LAST:event_jBtnEqualActionPerformed
 
     /**
      * @param args the command line arguments
@@ -388,6 +724,7 @@ public class jFrameCalculator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton ToggleSqrt;
+    private javax.swing.JToggleButton ToggleTheme;
     private javax.swing.JButton jBtn0;
     private javax.swing.JButton jBtn1;
     private javax.swing.JButton jBtn2;
@@ -415,8 +752,8 @@ public class jFrameCalculator extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTxtPrincipal;
     // End of variables declaration//GEN-END:variables
 }
